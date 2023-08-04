@@ -1,2 +1,2 @@
 # ludybupt.github.io
-cv
+[https://ludybupt.github.io/](https://ludybupt.github.io/)
