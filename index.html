@@ -1,79 +1,246 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" href="jemdoc.css" type="text/css" />
-<title>Di Lu(陆笛) </title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Di Lu (陆笛)</title>
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: #2c3e50;
+    background: #f8f9fa;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: #2980b9; text-decoration: none; transition: color .2s; }
+  a:hover { color: #1a5276; }
+
+  /* ── Layout ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 60px; }
+
+  /* ── Header Card ── */
+  .profile-card {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 36px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .profile-card img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid #e8e8e8;
+  }
+  .profile-info h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #1a1a2e;
+  }
+  .profile-info .subtitle {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .profile-info .email {
+    font-size: 0.92rem;
+    color: #777;
+    margin-bottom: 14px;
+  }
+
+  /* ── Link Pills ── */
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border: 1px solid #d0d7de;
+    border-radius: 20px;
+    background: #f6f8fa;
+    color: #24292f;
+    transition: all .2s;
+  }
+  .links a:hover {
+    background: #2980b9;
+    color: #fff;
+    border-color: #2980b9;
+  }
+  .links a svg { width: 16px; height: 16px; fill: currentColor; }
+
+  /* ── Sections ── */
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 36px;
+    margin-top: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .section h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #eef1f5;
+  }
+  .section p, .section li { font-size: 0.95rem; color: #444; }
+  .section ul { list-style: none; padding: 0; }
+  .section ul li { position: relative; padding-left: 18px; margin-bottom: 6px; }
+  .section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 7px;
+    height: 7px;
+    background: #2980b9;
+    border-radius: 50%;
+  }
+
+  /* ── Publications ── */
+  .pub-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-title {
+    font-weight: 600;
+    font-size: 0.97rem;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+  }
+  .pub-authors {
+    font-size: 0.88rem;
+    color: #666;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .pub-authors .me { font-weight: 600; color: #2980b9; }
+  .pub-venue {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 4px;
+    margin-right: 8px;
+  }
+  .venue-iclr { background: #e8f5e9; color: #2e7d32; }
+  .venue-ecai { background: #e3f2fd; color: #1565c0; }
+  .pub-links { display: inline; }
+  .pub-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-right: 10px;
+    color: #2980b9;
+  }
+  .pub-links a:hover { text-decoration: underline; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+  .footer img { vertical-align: middle; }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .profile-card { flex-direction: column; text-align: center; padding: 24px 20px; gap: 20px; }
+    .links { justify-content: center; }
+    .section { padding: 22px 20px; }
+  }
+</style>
 </head>
 <body>
-<table summary="Table for page layout." id="tlayout">
-<tr valign="top">
-<td id="layout-menu">
-<div class="menu-category">menu</div>
-<div class="menu-item"><a href="index.html" class="current">Home</a></div>
-<!--
-<div class="menu-item"><a href="research.html">Research</a></div>
-<div class="menu-item"><a href="publications.html">Publication</a></div>
-<div class="menu-item"><a href="activities.html">Activities</a></div>
--->
-<div class="menu-item"><a href="motto.html">Motto</a></div>
-<div class="menu-item"><a href="https://www.linkedin.com/in/%E7%AC%9B-%E9%99%86-4bb383118/?trk=people-guest_people_search-card&originalSubdomain=cn">Linkedin</a></div>
-</td>
-<td id="layout-content">
-<div id="toptitle">
-<h1>Di Lu(陆笛) </h1>
-</div>
-<table class="imgtable"><tr><td>
-<a href="https://www.linkedin.com/in/%E7%AC%9B-%E9%99%86-4bb383118/?trk=people-guest_people_search-card&originalSubdomain=cn"><img src="photos/bio2.jpg" alt="alt text" width="230px" height="230px" /></a>&nbsp;</td>
-<td align="left"><p><br /> NLP Researcher, <br /><a href="https://ai.weixin.qq.com/">Tencent Wechat AI</a><br />
-E-post: <i>dylu</i> [@] tencent [DOT] com</p>
-</td></tr></table>
-<h2>About me</h2>
-<p>Now, I’m an algorithm researcher at <a href="https://ai.weixin.qq.com/">Wechat AI</a>, Tencent.</p>
-<p>Prior to joining Tencent, I received the B.S. degree in Computer Science from Beijing University of Posts and Telecommunications(<a href="https://www.bupt.edu.cn/">BUPT</a>) in 2014. In April 2017, I received the M.Sc. degree in Computer Engineering under the supervision of
-<a href="https://scholar.google.com/citations?hl=en&user=-RtarngAAAAJ">Prof. XiaoJie Wang</a> at BUPT.  </p>
-<h2>Research</h2>
-<p>My research interests include </p>
-<ul>
-<li><p>Document-level Representation </p>
-</li>
-<li><p>Adversarial robustness</p>
-</li>
-<li><p>Conversational Emotion Recognition(CER)</p>
-</li>
-<!--
-<li><p>Adversarial robustness</p></li>
--->
-</ul>
-<!--
-<p><a href="research.html">Find out more</a>.</p>
--->
-<h3>Recent Publications </h3>
-<ol>
-<!--
-<li><p>None</p>
-  -->
-</li>
-<li><p>"FATRER: full-attention topic regularizer for accurate and robust conversational emotion recognition" [<a href="https://ecai2023.eu/acceptedpapers">ECAI2023</a>] [<a href="https://arxiv.org/abs/2307.12221">paper</a>][<a href="https://github.com/ludybupt/FATRER">code</a>]</p>
-</li>
-<!-- 
-<li><p>None[<a href="https://www.dropbox.com/s/k9izxz1m39yvvuz/admm_distributed_aveg.pdf?dl=0">pdf</a> ]</p>
-</li>
-<li><p>None [<a href="pub/oppTOSN.pdf">pdf</a>]</p>
-</li>-->
-</ol>
-<!--
-<p><a href="publications.html">Full list of publications</a>.
-<br />
-<a href="cv.pdf">A brief cv</a>.</p>
--->
-</td>
-</tr>
 
-</table>
-<a href="https://info.flagcounter.com/94Ay"><img src="https://s11.flagcounter.com/count2/94Ay/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>  
-<img src="https://badges.toozhao.com/badges/01H6DQ25FYKT0AEX7JYCPS5VEM/green.svg" />
+<div class="container">
+
+  <!-- ══ Profile Card ══ -->
+  <div class="profile-card">
+    <img src="photos/bio2.jpg" alt="Di Lu" />
+    <div class="profile-info">
+      <h1>Di Lu <span style="font-weight:400;font-size:1.1rem;color:#888;">(陆笛)</span></h1>
+      <div class="subtitle">NLP Researcher @ <a href="https://welm.weixin.qq.com/en/">Tencent WeChat AI</a></div>
+      <div class="email">Email: <i>dylu</i> [@] tencent [DOT] com</div>
+      <div class="links">
+        <a href="https://scholar.google.com/citations?user=aQlPKeMAAAAJ&hl=zh-CN">
+          <svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+          Google Scholar
+        </a>
+        <a href="https://openreview.net/profile?id=%7EDi_Lu6">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm-1.5 6h3v6h-3V6zm0 8h3v3h-3v-3z"/></svg>
+          OpenReview
+        </a>
+        <a href="https://www.linkedin.com/in/%E7%AC%9B-%E9%99%86-4bb383118/">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="motto.html">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          Motto
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ About ══ -->
+  <div class="section">
+    <h2>About Me</h2>
+    <p>I'm an algorithm researcher at <a href="https://welm.weixin.qq.com/en/">WeChat AI</a>, Tencent. I am currently engaged in post-training for the <a href="https://welm.weixin.qq.com/en/">WeLM</a> large language model series.</p>
+    <p>Prior to joining Tencent, I received the B.S. degree in Computer Science from Beijing University of Posts and Telecommunications (<a href="https://www.bupt.edu.cn/">BUPT</a>) in 2014. In April 2017, I received the M.Sc. degree in Computer Engineering under the supervision of <a href="https://scholar.google.com/citations?hl=en&user=-RtarngAAAAJ">Prof. Xiaojie Wang</a> at BUPT.</p>
+  </div>
+
+  <!-- ══ Research Interests ══ -->
+  <div class="section">
+    <h2>Research Interests</h2>
+    <ul>
+      <li>LLM Post-Training</li>
+      <li>Software Engineering (SWE) Tasks</li>
+    </ul>
+  </div>
+
+  <!-- ══ Publications ══ -->
+  <div class="section">
+    <h2>Publications</h2>
+
+    <div class="pub-item">
+      <div class="pub-title">Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces</div>
+      <div class="pub-authors">Mike A. Merrill, Alexander G. Shaw, Nicholas Carlini, Boxuan Li, Harsh Raj, Ivan Bercovich, Lin Shi, Jeong Yeon Shin, Thomas Walshe, E. Kelly Buchanan, Junhong Shen, Guanghao Ye, Haowei Lin, Jason Poulos, Maoyu Wang, Marianna Nezhurina, Jenia Jitsev, <span class="me">Di Lu</span>, Orfeas Menis Mastromichalakis, Zhiwei Xu, Zizhao Chen, Yue Liu, Robert Zhang, Leon Liangyu Chen, Anurag Kashyap, Jan-Lucas Uslu, Jeffrey Li, Jianbo Wu, Minghao Yan, Song Bian, Vedang Sharma, Ke Sun, Steven Dillmann, et al.</div>
+      <span class="pub-venue venue-iclr">ICLR 2026</span>
+      <span class="pub-links">
+        <a href="https://arxiv.org/abs/2601.11868">Paper</a>
+        <a href="https://github.com/laude-institute/terminal-bench">Code</a>
+      </span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-title">FATRER: Full-Attention Topic Regularizer for Accurate and Robust Conversational Emotion Recognition</div>
+      <div class="pub-authors">Yuzhao Mao, <span class="me">Di Lu</span>, Yang Zhang, Xiaojie Wang</div>
+      <span class="pub-venue venue-ecai">ECAI 2023</span>
+      <span class="pub-links">
+        <a href="https://arxiv.org/abs/2307.12221">Paper</a>
+        <a href="https://github.com/ludybupt/FATRER">Code</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- ══ Footer ══ -->
+  <div class="footer">
+    <a href="https://info.flagcounter.com/94Ay"><img src="https://s11.flagcounter.com/count2/94Ay/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" /></a>
+  </div>
+
+</div>
+
 </body>
 </html>
